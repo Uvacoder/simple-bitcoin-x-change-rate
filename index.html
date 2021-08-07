@@ -16,29 +16,29 @@
             <header class="card-header">
                 <h1 class="card-header-title">Bitcoin Converter</h1>
             </header>
-            <div class="card-converter is-fullwidth">
-                <form method="GET" class="field has-addons">
+            <div class="card-content converter is-fullwidth">
+                <form method="GET" action="/" class="field has-addons">
                     <p class="control">
                         <span class="select">
-                            <select class="curNameOptions">
-                                <option>$</option>
-                                <option>£</option>
-                                <option>€</option>
+                            <select class="curSymOptions" name="currency" id="currencyArea">
+                                <option value="AUD">Select Currency</option>
                             </select>
                         </span>
                     </p>
                     <p class="control is-expanded">
-                        <input class="input" type="text" placeholder="How much would you like to convert?">
+                        <input class="input" id="userInputValue" name="value" value="100" type="number" placeholder="How much would you like to convert?">
                     </p>
-                    <p class="control">
-                        <a class="button">Convert to BTC</a>
-                    </p>
+                    <button class="control button" id="convertBtn">Convert to BTC</button>
                 </form>
+            </div>
+            <div class="card-content">
+                <h1 class="result">
+                    <span id="enteredValue"></span>
+                    <span id="enteredCur"></span> <i class="fab fa-btc"></i>
+                    <span id="convertedValue"></span></h1>
             </div>
         </div>
     </section>
-
-
 
 
     <section class="container excRatesCont mt-6">
