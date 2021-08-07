@@ -11,10 +11,40 @@
 </head>
 
 <body>
-    <section class="container">
+    <section class="container formCont">
+        <div class="card ">
+            <header class="card-header">
+                <h1 class="card-header-title">Bitcoin Converter</h1>
+            </header>
+            <div class="card-converter is-fullwidth">
+                <form method="GET" class="field has-addons">
+                    <p class="control">
+                        <span class="select">
+                            <select class="curNameOptions">
+                                <option>$</option>
+                                <option>£</option>
+                                <option>€</option>
+                            </select>
+                        </span>
+                    </p>
+                    <p class="control is-expanded">
+                        <input class="input" type="text" placeholder="How much would you like to convert?">
+                    </p>
+                    <p class="control">
+                        <a class="button">Convert to BTC</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="container excRatesCont mt-6">
         <div class="card">
             <header class="card-header">
-                <p class="card-header-title" id="appTitle">Bitcoin Exchange Rates</p>
+                <p class="card-header-title">Bitcoin Exchange Rates</p>
             </header>
             <table class="card-content table is-bordered is-hoverable is-fullwidth is-narrow">
                 <thead>
@@ -24,12 +54,12 @@
                     </tr>
                 </thead>
                 <tbody class="card-content" id="curTableBody">
-                    
+
                 </tbody>
             </table>
         </div>
     </section>
-        <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
