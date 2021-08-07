@@ -1,14 +1,10 @@
 // Task One - Display BTC Prices in Different Currencies - src: https://blockchain.info/ticker
 
-//Use this endpoint to retrieve the information and display it in a readable format on the page. The information changes frequently so the list should be kept up to date at all times.
-
 // Fetch data from the src,
 
 // and display it on a table which includes Currency Name and 1 BTC value of the currency
 
 // table should be responsive, use a CSS Framework
-
-// The solution should be responsive but, for the purposes of this demo, only needs to work on the latest version of Chrome.
 
 const getPrices = async () => {
   try {
