@@ -14,7 +14,7 @@ span {
     text-align: center;
 }
 
-#appTitle {
+.card-header-title {
     justify-content: center;
 }
 
