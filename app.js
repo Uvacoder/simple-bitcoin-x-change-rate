@@ -50,13 +50,8 @@ const getPrices = async () => {
 
 getPrices();
 
-// Build a form which allows the user to convert a given value of a specific currency into Bitcoin.
-// It's important that the user cannot select a currency that is not returned by the first endpoint; the
-// user must not be able to convert 0 or negative values and the form should display appropriate
-// errors.
-// You are not expected to perform the conversion yourself; the following endpoint
-// https://blockchain.info/tobtc?currency=USD&value=50 will handle the action for you.
-
+//Task Two - Build a form for converting currencies to Bitcoin
+//Add currency symbols in JSON object as option into the selection area
 const getCurSymbol = async () => {
   try {
     const res = await fetch(url);
@@ -89,7 +84,7 @@ const convertedValue = document.querySelector("#convertedValue");
 const warning = document.querySelector("#warning");
 const result = document.querySelector("#result")
 
-
+//Fetch converted data from the api via user inputs
 const convert = async () => {
   let submitCur = userInputCur.value;
   let submitValue = userInputValue.value;
