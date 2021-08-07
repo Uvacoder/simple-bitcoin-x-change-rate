@@ -61,8 +61,6 @@ const getCurSymbol = async () => {
   try {
     const res = await fetch(url);
     const data = await res.json();
-    console.log("Data fetching for symbols is working");
-
     for (let curName in data) {
       if (data.hasOwnProperty(curName)) {
         //create options for select element with currency symbol
@@ -88,7 +86,9 @@ const userInputCur = document.querySelector("#currencyArea");
 const enteredCur = document.querySelector("#enteredCur");
 const enteredValue = document.querySelector("#enteredValue");
 const convertedValue = document.querySelector("#convertedValue");
-const convertBtn = document.querySelector("#convertBtn");
+const warning = document.querySelector("#warning");
+const result = document.querySelector("#result")
+
 
 const convert = async () => {
   let submitCur = userInputCur.value;
@@ -98,14 +98,25 @@ const convert = async () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log("Data fetching for conversion is working");
-      enteredCur.innerHTML = `${submitCur} =`;
-      enteredValue.innerHTML = `${submitValue}`;
-      convertedValue.innerHTML = `${data} BTC`;
+      if (submitValue !== 0 && submitValue > 0) {
+        warning.style.display = "none";
+        result.style.display = "block";
+        enteredCur.innerHTML = `${submitCur} =`;
+        enteredValue.innerHTML = `${submitValue}`;
+        convertedValue.innerHTML = `${data} BTC`;
+      } else if (submitValue == 0) {
+        result.style.display = "none";
+        warning.style.display = "block";
+        warning.textContent = `You cannot convert zero amount ${submitCur} to BTC`;
+      } else if (submitValue < 0) {
+        result.style.display = "none";
+        warning.style.display = "block";
+        warning.textContent = `You cannot convert less than zero amount ${submitCur} to BTC`;
+      }
     })
     .catch((err) => console.log("Conversion part has an error", err));
 };
 
 userInputCur.addEventListener("change", convert);
 userInputValue.addEventListener("input", convert);
-convertBtn.addEventListener("click", convert);
+
